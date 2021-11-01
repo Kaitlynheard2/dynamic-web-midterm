@@ -23,6 +23,8 @@ function AnalysisCard({ tweetInfo }) {
 
   const analysisColorString = AnalysisColor(analysisData);
   const TweetID = tweetInfo.id;
+  console.log(TweetID);
+  const TweetLink = `https://twitter.com/1163912602931662848/statuses/${TweetID}`;
 
   return (
     <div className="DataWrapper">
@@ -34,11 +36,7 @@ function AnalysisCard({ tweetInfo }) {
       ></div>
       <p className="TextStyle">{tweetInfo.text}</p>
       <div className="TweetButtonStyle">
-        <a
-          className="TweetButtonLinkStyle"
-          id="link"
-          href="https://twitter.com/statuses/"
-        >
+        <a className="TweetButtonLinkStyle" href={TweetLink}>
           Go To Tweet
         </a>
       </div>

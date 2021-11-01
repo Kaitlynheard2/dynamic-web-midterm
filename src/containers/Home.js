@@ -34,7 +34,17 @@ function Home() {
 
   return (
     <div className="Wrapper">
-      <header className="HeaderStyle">The Book Of Basi</header>
+      <header className="HeaderStyle">
+        <p className="H1Style">The Book Of Basi </p>
+        <div className="TweetButtonCORSStyle">
+          <a
+            className="TweetButtonLinkStyle"
+            href="https://cors-anywhere.herokuapp.com/corsdemo"
+          >
+            Enable CORS
+          </a>
+        </div>
+      </header>
       <div>
         <div className="PolarityKeyCard">
           <p className="PolarityTitle">Polarity Key</p>

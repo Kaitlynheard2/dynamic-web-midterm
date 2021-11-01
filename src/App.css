@@ -25,11 +25,14 @@
 }
 
 .HeaderStyle {
-  font-size: 30px;
   margin: 30px auto;
+  width: 90%;
+}
+
+.H1Style {
+  font-size: 30px;
   font-family: "Arial", sans-serif;
   font-weight: bold;
-  width: 60%;
 }
 
 .TextStyle {
@@ -40,6 +43,7 @@
   margin: auto;
   width: 60%;
   font-weight: bold;
+  font-size: 1.2em;
 }
 
 .PolarityCategory {
@@ -51,7 +55,7 @@
 }
 
 .PolarityKeyCard {
-  width: 60%;
+  width: 90%;
   margin: 50px auto;
   border-radius: 10px;
   box-shadow: 5px 10px 25px rgb(101, 119, 134);
@@ -114,7 +118,7 @@
 
 .TweetButtonStyle {
   background-color: rgb(25, 140, 212);
-  border-radius: 10px;
+  border-radius: 40px;
   text-align: center;
   position: absolute;
   padding: 10px;
@@ -122,6 +126,13 @@
   width: 20%;
 }
 
+.TweetButtonCORSStyle {
+  background-color: rgb(25, 140, 212);
+  border-radius: 40px;
+  text-align: center;
+  padding: 10px;
+  width: 20%;
+}
 .TweetButtonLinkStyle {
   color: white;
   text-decoration: none;
