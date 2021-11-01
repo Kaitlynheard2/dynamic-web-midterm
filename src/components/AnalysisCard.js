@@ -23,7 +23,6 @@ function AnalysisCard({ tweetInfo, ID }) {
 
   const analysisColorString = AnalysisColor(analysisData);
   const TweetID = tweetInfo.id;
-  console.log(TweetID);
   const TweetLink = `https://twitter.com/${ID}/statuses/${TweetID}`;
 
   return (
