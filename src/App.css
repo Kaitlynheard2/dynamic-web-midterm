@@ -8,20 +8,20 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  align-items: center;
+  gap: 10px;
 }
 
 .DataWrapper {
-  display: flex;
-  position: relative;
-  box-shadow: 5px 10px 25px rgb(101, 119, 134);
-  flex-direction: column;
   border-radius: 10px;
-  padding: 30px;
+  box-shadow: 5px 10px 25px rgb(101, 119, 134);
+  display: flex;
+  flex-direction: column;
+  height: 300px;
   margin: auto;
-  width: 25%;
-  height: 200px;
   margin-bottom: 50px;
+  padding: 30px;
+  position: relative;
+  width: 27%;
 }
 
 .HeaderStyle {
@@ -30,20 +30,16 @@
 }
 
 .H1Style {
-  font-size: 30px;
   font-family: "Arial", sans-serif;
+  font-size: 30px;
   font-weight: bold;
-}
-
-.TextStyle {
-  font-family: sans-serif;
 }
 
 .PolarityTitle {
-  margin: auto;
-  width: 60%;
   font-weight: bold;
   font-size: 1.2em;
+  margin: auto;
+  width: 60%;
 }
 
 .PolarityCategory {
@@ -55,11 +51,11 @@
 }
 
 .PolarityKeyCard {
-  width: 90%;
-  margin: 50px auto;
   border-radius: 10px;
   box-shadow: 5px 10px 25px rgb(101, 119, 134);
+  margin: 50px auto;
   padding: 30px;
+  width: 90%;
 }
 
 .PPlusStyle {
@@ -78,6 +74,25 @@
   height: 20px;
   margin-top: 15px;
   width: 20px;
+}
+
+.NavigationBarStyle {
+  display: flex;
+  justify-content: space-evenly;
+  width: 60%;
+  margin: auto;
+}
+
+.NavigationBarLinkStyle {
+  color: rgb(21, 115, 173);
+  font-weight: bold;
+  margin: 10px;
+  text-decoration: none;
+}
+
+.NavigationBarLinkStyle:hover {
+  font-size: 1.1em;
+  font-weight: 900;
 }
 
 .NEUStyle {
@@ -116,30 +131,36 @@
   width: 20px;
 }
 
+.TextStyle {
+  font-family: sans-serif;
+}
+
 .TweetButtonStyle {
   background-color: rgb(25, 140, 212);
   border-radius: 40px;
-  text-align: center;
-  position: absolute;
-  padding: 10px;
   bottom: 15px;
+  padding: 10px;
+  position: absolute;
+  text-align: center;
   width: 20%;
 }
 
 .TweetButtonCORSStyle {
   background-color: rgb(25, 140, 212);
   border-radius: 40px;
-  text-align: center;
   padding: 10px;
+  text-align: center;
   width: 20%;
 }
+
 .TweetButtonLinkStyle {
   color: white;
-  text-decoration: none;
   font-weight: bold;
+  font-size: 1em;
+  text-decoration: none;
 }
 
 .Wrapper {
-  width: 80%;
   margin: auto;
+  width: 80%;
 }

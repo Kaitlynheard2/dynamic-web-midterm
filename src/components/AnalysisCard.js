@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-function AnalysisCard({ tweetInfo }) {
+function AnalysisCard({ tweetInfo, ID }) {
   const [analysisData, setAnalysisData] = useState({});
   const ANAYLSIS_API_KEY = `74f9282a0e925cc02721212041e7bc84`;
 
@@ -24,7 +24,7 @@ function AnalysisCard({ tweetInfo }) {
   const analysisColorString = AnalysisColor(analysisData);
   const TweetID = tweetInfo.id;
   console.log(TweetID);
-  const TweetLink = `https://twitter.com/1163912602931662848/statuses/${TweetID}`;
+  const TweetLink = `https://twitter.com/${ID}/statuses/${TweetID}`;
 
   return (
     <div className="DataWrapper">

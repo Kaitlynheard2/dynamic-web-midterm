@@ -3,14 +3,26 @@ import axios from "axios";
 import { useLocation } from "react-router-dom";
 import AnalysisCard from "../components/AnalysisCard";
 
-//const TWITTER_API_KEY = `MFRmMIIjwGpm8sdBQrskD7uug`;
-//const TWITTER_API_SECTRET_KEY = `ikzSpUmDLhCIM3rZQWrVynMf12gxSj5ZcAawANWd1LfNY9qoZL`;
+function useQuery() {
+  return new URLSearchParams(useLocation().search);
+}
 
 function Home() {
   const [tweetData, setTweet] = useState();
+  const [ID, setID] = useState();
+  const BasiID = `1163912602931662848`;
+  const BasiLink = `/?ID=${BasiID}`;
+  const SeungID = `1245909029630742534`;
+  const SeungLink = `/?ID=${SeungID}`;
 
   const BEARER_TOKEN = `AAAAAAAAAAAAAAAAAAAAAIZfUwEAAAAAmUXjvCgh%2Fux7VSX4tTwqOid4WSo%3D4Pd9V02o0zokvvmz9J7MSXH0FtRA8IrnuEXY4TQgqgnzYwwt34`;
-  // cors anywhere link: https://cors-anywhere.herokuapp.com/corsdemo
+
+  let query = useQuery();
+
+  useEffect(() => {
+    const IDValue = query.get("ID");
+    setID(IDValue);
+  }, [query]);
 
   useEffect(() => {
     let config = {
@@ -18,24 +30,44 @@ function Home() {
         Authorization: `Bearer ${BEARER_TOKEN}`,
       },
     };
-    axios
-      .get(
-        `https://cors-anywhere.herokuapp.com/https://api.twitter.com/2/users/1163912602931662848/tweets`,
-        config
-      )
-      .then(function (response) {
-        console.log(response);
-        setTweet(response.data.data);
-      })
-      .catch(function (error) {
-        console.warn(error);
-      });
-  }, []);
+
+    if (ID) {
+      axios
+        .get(
+          `https://cors-anywhere.herokuapp.com/https://api.twitter.com/2/users/${ID}/tweets`,
+          config
+        )
+        .then(function (response) {
+          console.log(response);
+          setTweet(response.data.data);
+        })
+        .catch(function (error) {
+          console.warn(error);
+        });
+    }
+  }, [ID]);
+
+  function Title(ID_input) {
+    if (ID_input == BasiID) {
+      return "The Book of Basi";
+    }
+    if (ID_input == SeungID) {
+      return "Seung's Soliloquy";
+    }
+  }
 
   return (
     <div className="Wrapper">
+      <nav className="NavigationBarStyle">
+        <a className="NavigationBarLinkStyle" href={BasiLink}>
+          The Book of Basi
+        </a>
+        <a className="NavigationBarLinkStyle" href={SeungLink}>
+          Seung's Soliloquy
+        </a>
+      </nav>
       <header className="HeaderStyle">
-        <p className="H1Style">The Book Of Basi </p>
+        <p className="H1Style">{Title(ID)}</p>
         <div className="TweetButtonCORSStyle">
           <a
             className="TweetButtonLinkStyle"
@@ -77,7 +109,7 @@ function Home() {
       <div className="ContentWrapper">
         {tweetData &&
           tweetData.map((tweetInfo, i) => (
-            <AnalysisCard key={i} tweetInfo={tweetInfo} />
+            <AnalysisCard key={i} ID={ID} tweetInfo={tweetInfo} />
           ))}
       </div>
     </div>
